@@ -145,9 +145,9 @@ function getCurrentMessage() {
   return 'Ugyldig dag';
 }
 
-app.use("/dist", express.static(__dirname + "/dist")); //Makes dist public
+app.use("/public", express.static(__dirname + "/../public")); //Makes dist public
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/src/index.html');
+  res.sendFile(__dirname + '/index.html');
 });
 
 io.on('connection', (socket) => {
