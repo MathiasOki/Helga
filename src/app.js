@@ -5,7 +5,8 @@ const io = require('socket.io')(http);
 const port = process.env.PORT || 3000;
 
 function calculateTimeToNext(targetDay, targetHour, daysToAdd = 0) {
-  const now = new Date();
+  const local = new Date().toLocaleString("en-US", {timeZone: "Europe/Oslo"})
+  const now = new Date(local);
   let targetDate = new Date(now);
 
   const currentDay = now.getDay();
@@ -25,12 +26,13 @@ function calculateTimeToNext(targetDay, targetHour, daysToAdd = 0) {
 let heroTitle = 'Hold ut!';
 
 function getCurrentMessage() {
-  const now = new Date();
+  const local = new Date().toLocaleString("en-US", {timeZone: "Europe/Oslo"})
+  const now = new Date(local);
   const currentDay = now.getDay();
   const currentHour = now.getHours();
   const currentMinute = now.getMinutes();
   const currentSecond = now.getSeconds();
-  console.log(now);
+  //console.log(currentHour);
 
   /* Test
   const now = new Date();
@@ -155,7 +157,8 @@ io.on('connection', (socket) => {
     let fridayMessage = '';
 
     if (message !== message.weekend) {
-      const currentDay = new Date().getDay();
+      const local = new Date().toLocaleString("en-US", {timeZone: "Europe/Oslo"})
+      const currentDay = new Date(local).getDay();
       //const currentDay = 3;
       if (currentDay !== 5) { // Ikke fredag
         const fridayTimeToNext = calculateTimeToNext(5, 16); // Target Friday, 16:00
