@@ -24,20 +24,6 @@ function calculateTimeToNext(targetDay, targetHour, daysToAdd = 0) {
 
 let heroTitle = 'Hold ut!';
 
-function logs() {
-  const now = new Date();
-  const currentDay = now.getDay();
-  const currentHour = now.getHours();
-  const currentMinute = now.getMinutes();
-  const currentSecond = now.getSeconds();
-
-  console.log(now);
-  console.log(currentDay);
-  console.log(currentHour);
-  console.log(currentMinute);
-  console.log(currentSecond);
-}
-
 function getCurrentMessage() {
   const now = new Date();
   const currentDay = now.getDay();
@@ -220,7 +206,7 @@ io.on('connection', (socket) => {
       }
     }
 
-    socket.emit('update', message, fridayMessage, heroTitle, logs);
+    socket.emit('update', message, fridayMessage, heroTitle);
   }, 1000);
 
   socket.on('disconnect', () => {
