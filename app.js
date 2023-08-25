@@ -156,8 +156,8 @@ io.on('connection', (socket) => {
     let fridayMessage = '';
 
     if (message !== message.weekend) {
-      //const currentDay = new Date().getDay();
-      const currentDay = 3;
+      const currentDay = new Date().getDay();
+      //const currentDay = 3;
       if (currentDay !== 5) { // Ikke fredag
         const fridayTimeToNext = calculateTimeToNext(5, 16); // Target Friday, 16:00
 
