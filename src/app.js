@@ -24,22 +24,34 @@ function calculateTimeToNext(targetDay, targetHour, daysToAdd = 0) {
 
 let heroTitle = 'Hold ut!';
 
-function getCurrentMessage() {
-  /* Produksjon
+function logs() {
   const now = new Date();
   const currentDay = now.getDay();
   const currentHour = now.getHours();
   const currentMinute = now.getMinutes();
   const currentSecond = now.getSeconds();
-  */
 
-  //TEST
+  console.log(now);
+  console.log(currentDay);
+  console.log(currentHour);
+  console.log(currentMinute);
+  console.log(currentSecond);
+}
+
+function getCurrentMessage() {
   const now = new Date();
   const currentDay = now.getDay();
   const currentHour = now.getHours();
   const currentMinute = now.getMinutes();
   const currentSecond = now.getSeconds();
-  //END TEST
+
+  /* Test
+  const now = new Date();
+  const currentDay = now.getDay();
+  const currentHour = now.getHours();
+  const currentMinute = now.getMinutes();
+  const currentSecond = now.getSeconds();
+  END TEST */
 
   const weekDoneMessage = 'Påtide å bevege seg hjemover nå! 😴';
 
@@ -80,7 +92,7 @@ function getCurrentMessage() {
     if (currentHour < 6) {
       return 'Hvile mandag';
     } else if (currentHour >= 6 && currentHour < 16) {
-      const hoursLeft = 16 - currentHour;
+      const hoursLeft = 15 - currentHour;
       const minutesLeft = 59 - currentMinute;
       const secondsLeft = 59 - currentSecond;
       return messageOutput(currentDay, hoursLeft, minutesLeft, secondsLeft);
@@ -91,7 +103,7 @@ function getCurrentMessage() {
     if (currentHour < 6) {
       return 'Hvile tirsdag';
     } else if (currentHour >= 6 && currentHour < 16) {
-      const hoursLeft = 16 - currentHour;
+      const hoursLeft = 15 - currentHour;
       const minutesLeft = 59 - currentMinute;
       const secondsLeft = 59 - currentSecond;
       return messageOutput(currentDay, hoursLeft, minutesLeft, secondsLeft);
@@ -102,7 +114,7 @@ function getCurrentMessage() {
     if (currentHour < 6) {
       return 'Hvile onsdag';
     } else if (currentHour >= 6 && currentHour < 16) {
-      const hoursLeft = 16 - currentHour;
+      const hoursLeft = 15 - currentHour;
       const minutesLeft = 59 - currentMinute;
       const secondsLeft = 59 - currentSecond;
       return messageOutput(currentDay, hoursLeft, minutesLeft, secondsLeft);
@@ -113,7 +125,7 @@ function getCurrentMessage() {
     if (currentHour < 6) {
       return 'Hvile torsdag';
     } else if (currentHour >= 6 && currentHour < 16) {
-      const hoursLeft = 16 - currentHour;
+      const hoursLeft = 15 - currentHour;
       const minutesLeft = 59 - currentMinute;
       const secondsLeft = 59 - currentSecond;
       return messageOutput(currentDay, hoursLeft, minutesLeft, secondsLeft);
@@ -124,7 +136,7 @@ function getCurrentMessage() {
     if (currentHour < 6) {
       return 'Hvile fredag';
     } else if (currentHour >= 6 && currentHour < 16) {
-      const hoursLeft = 16 - currentHour;
+      const hoursLeft = 15 - currentHour;
       const minutesLeft = 59 - currentMinute;
       const secondsLeft = 59 - currentSecond;
       return messageOutput(currentDay, hoursLeft, minutesLeft, secondsLeft);
@@ -208,7 +220,7 @@ io.on('connection', (socket) => {
       }
     }
 
-    socket.emit('update', message, fridayMessage, heroTitle);
+    socket.emit('update', message, fridayMessage, heroTitle, logs);
   }, 1000);
 
   socket.on('disconnect', () => {

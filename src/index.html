@@ -46,11 +46,12 @@
   <script>
     const socket = io();
 
-    socket.on('update', (message, fridayMessage, heroTitle) => {
+    socket.on('update', (message, fridayMessage, heroTitle, logs) => {
       document.getElementById('message').innerText = message;
       document.getElementById('fridayMessage').innerText = fridayMessage;
       document.getElementById('heroTitle').innerText = heroTitle;
     });
+
   </script>
 </body>
 </html>
