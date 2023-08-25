@@ -39,14 +39,27 @@
   </div><!-- End Hero -->
   </main>
   <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
   <script>
     const socket = io();
+    const local = new Date().toLocaleString("en-US", {timeZone: "Europe/Oslo"})
+    const now = new Date(local);
+    const currentDay = now.getDay();
+    const currentHour = now.getHours();
+    const jsConfetti = new JSConfetti();
 
     socket.on('update', (message, fridayMessage, heroTitle) => {
       document.getElementById('message').innerText = message;
       document.getElementById('fridayMessage').innerText = fridayMessage;
       document.getElementById('heroTitle').innerText = heroTitle;
     });
+
+    if (currentHour >= 16 && currentHour < 17 && currentDay === 5) {
+      console.log("fredag");
+      jsConfetti.addConfetti({
+        emojis: ['🍺', '🍾', '🥂', '🍹', '🍻', '🎉'],
+      });
+    }
   </script>
 </body>
 </html>
