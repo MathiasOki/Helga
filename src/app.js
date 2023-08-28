@@ -205,7 +205,7 @@ io.on('connection', (socket) => {
             secondsOutput = `0 sekunder`;
           }
 
-          fridayMessage = `Det er fredag om ${daysOutput} ${hoursOutput} ${minutesOutput} ${secondsOutput}`;
+          fridayMessage = `Det er helg om ${daysOutput} ${hoursOutput} ${minutesOutput} ${secondsOutput}`;
         }
       }
     }
