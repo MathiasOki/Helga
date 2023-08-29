@@ -43,6 +43,7 @@ function getCurrentMessage() {
   END TEST */
 
   const weekDoneMessage = 'Påtide å bevege seg hjemover nå! 😴';
+  const nightMessage = 'Du burde sove nå 😴';
 
   function messageOutput(getCurrentDay, getHoursLeft, getMinutesLeft, getSecondsLeft) {
     let dayOutput = 'til klokken er 16:00.';
@@ -74,12 +75,16 @@ function getCurrentMessage() {
       dayOutput = 'til det er helg 🍾'
     }
 
+    if (getCurrentDay === 3) {
+      dayOutput = 'til det er lillelørdag 🥳'
+    }
+
     return `Det er bare ${hoursOutput} ${minutesOutput} ${secondsOutput} ${dayOutput}`;
   }
 
   if (currentDay === 1) { // Mandag
     if (currentHour < 6) {
-      return 'Hvile mandag';
+      return nightMessage;
     } else if (currentHour >= 6 && currentHour < 16) {
       const hoursLeft = 15 - currentHour;
       const minutesLeft = 59 - currentMinute;
@@ -90,7 +95,7 @@ function getCurrentMessage() {
     }
   } else if (currentDay === 2) { // Tirsdag
     if (currentHour < 6) {
-      return 'Hvile tirsdag';
+      return nightMessage;
     } else if (currentHour >= 6 && currentHour < 16) {
       const hoursLeft = 15 - currentHour;
       const minutesLeft = 59 - currentMinute;
@@ -101,7 +106,7 @@ function getCurrentMessage() {
     }
   } else if (currentDay === 3) { // Onsdag
     if (currentHour < 6) {
-      return 'Hvile onsdag';
+      return nightMessage;
     } else if (currentHour >= 6 && currentHour < 16) {
       const hoursLeft = 15 - currentHour;
       const minutesLeft = 59 - currentMinute;
@@ -112,7 +117,7 @@ function getCurrentMessage() {
     }
   } else if (currentDay === 4) { // Torsdag
     if (currentHour < 6) {
-      return 'Hvile torsdag';
+      return nightMessage;
     } else if (currentHour >= 6 && currentHour < 16) {
       const hoursLeft = 15 - currentHour;
       const minutesLeft = 59 - currentMinute;
@@ -123,7 +128,7 @@ function getCurrentMessage() {
     }
   } else if (currentDay === 5) { // Fredag
     if (currentHour < 6) {
-      return 'Hvile fredag';
+      return nightMessage;
     } else if (currentHour >= 6 && currentHour < 16) {
       const hoursLeft = 15 - currentHour;
       const minutesLeft = 59 - currentMinute;
