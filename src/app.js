@@ -122,6 +122,7 @@ function getCurrentMessage() {
       const hoursLeft = 15 - currentHour;
       const minutesLeft = 59 - currentMinute;
       const secondsLeft = 59 - currentSecond;
+      heroTitle = 'Veldig nære!';
       return messageOutput(currentDay, hoursLeft, minutesLeft, secondsLeft);
     } else {
       return weekDoneMessage;
@@ -133,6 +134,7 @@ function getCurrentMessage() {
       const hoursLeft = 15 - currentHour;
       const minutesLeft = 59 - currentMinute;
       const secondsLeft = 59 - currentSecond;
+      heroTitle = 'Det er fredag 🫣';
       return messageOutput(currentDay, hoursLeft, minutesLeft, secondsLeft);
     } else {
       const weekend = true;
