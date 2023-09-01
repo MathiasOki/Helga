@@ -134,7 +134,7 @@ function getCurrentMessage() {
       const hoursLeft = 15 - currentHour;
       const minutesLeft = 59 - currentMinute;
       const secondsLeft = 59 - currentSecond;
-      heroTitle = 'Det er fredag 🫣';
+      heroTitle = 'Ikke lenge igjen nå 🫣';
       return messageOutput(currentDay, hoursLeft, minutesLeft, secondsLeft);
     } else {
       const weekend = true;
