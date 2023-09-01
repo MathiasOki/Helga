@@ -72,7 +72,7 @@ function getCurrentMessage() {
     }
 
     if (getCurrentDay === 5) {
-      dayOutput = 'til det er helg 🍾'
+      dayOutput = 'til helg 🍾'
     }
 
     if (getCurrentDay === 3) {
