@@ -52,8 +52,10 @@
     const socket = io();
     const local = new Date().toLocaleString("en-US", {timeZone: "Europe/Oslo"})
     const now = new Date(local);
-    const currentDay = now.getDay();
-    const currentHour = now.getHours();
+    let currentDay = now.getDay();
+    let currentHour = now.getHours();
+    let currentMinute = now.getMinutes();
+    let currentSecond = now.getSeconds();
     const jsConfetti = new JSConfetti();
 
     socket.on('update', (message, fridayMessage, heroTitle) => {
@@ -62,6 +64,15 @@
       document.getElementById('heroTitle').innerText = heroTitle;
     });
 
+    setInterval(function() {
+      currentSecond += 1;
+      if (currentHour === 16 && currentMinute === 0 && currentSecond >= 0 && currentSecond <= 5 && currentDay === 5) {
+        jsConfetti.addConfetti({
+          emojis: ['🍺', '🍾', '🥂', '🍹', '🍻', '🎉'],
+        });
+      }
+    }, 1000);
+    
     if (currentHour >= 16 && currentHour < 21 && currentDay === 5) {
       console.log("fredag");
       jsConfetti.addConfetti({
