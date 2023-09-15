@@ -66,6 +66,13 @@
     });
 
     setInterval(function() {
+      const local = new Date().toLocaleString("en-US", {timeZone: "Europe/Oslo"})
+      const now = new Date(local);
+      const currentDay = now.getDay();
+      const currentHour = now.getHours();
+      const currentMinute = now.getMinutes();
+      const currentSecond = now.getSeconds();
+      
       if (currentHour === 16 && currentMinute === 0 && currentSecond >= 0 && currentSecond <= 5 && currentDay === 5) {
         jsConfetti.addConfetti({
           emojis: ['🍺', '🍾', '🥂', '🍹', '🍻', '🎉'],
