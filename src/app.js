@@ -25,6 +25,21 @@ function calculateTimeToNext(targetDay, targetHour, daysToAdd = 0) {
 
 let heroTitle = 'Hold ut!';
 
+function cocktailImg() {
+  const local = new Date().toLocaleString("en-US", {timeZone: "Europe/Oslo"})
+  const now = new Date(local);
+  const currentDay = now.getDay();
+  const currentHour = now.getHours();
+  const currentMinute = now.getMinutes();
+  const currentSecond = now.getSeconds();
+
+  //console.log('cocktail?');
+  
+  if (currentDay == 5 && currentHour >= 16) {
+    return '<br><br><img src="public/img/cocktail.gif" alt="" class="rounded-md max-w-[50%]">';
+  }
+}
+
 function getCurrentMessage() {
   const local = new Date().toLocaleString("en-US", {timeZone: "Europe/Oslo"})
   const now = new Date(local);
@@ -36,11 +51,11 @@ function getCurrentMessage() {
 
   /* Test
   const now = new Date();
-  const currentDay = now.getDay();
-  const currentHour = now.getHours();
-  const currentMinute = now.getMinutes();
+  const currentDay = 5;
+  const currentHour = 16;
+  const currentMinute = 44;
   const currentSecond = now.getSeconds();
-  END TEST */
+  ND TEST */
 
   const weekDoneMessage = 'Påtide å bevege seg hjemover nå! 😴';
   const nightMessage = 'Du burde sove nå 😴';
@@ -161,6 +176,7 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
   const interval = setInterval(() => {
     const message = getCurrentMessage();
+    const cocktail = cocktailImg();
     let fridayMessage = '';
 
     if (message !== message.weekend) {
@@ -217,7 +233,7 @@ io.on('connection', (socket) => {
       }
     }
 
-    socket.emit('update', message, fridayMessage, heroTitle);
+    socket.emit('update', message, cocktail, fridayMessage, heroTitle);
   }, 1000);
 
   socket.on('disconnect', () => {

@@ -617,6 +617,14 @@ video {
   max-width: 32rem;
 }
 
+.max-w-\[30\%\] {
+  max-width: 30%;
+}
+
+.max-w-\[50\%\] {
+  max-width: 50%;
+}
+
 .content-center {
   align-content: center;
 }
@@ -641,6 +649,10 @@ video {
 
 .rounded-lg {
   border-radius: 0.5rem;
+}
+
+.rounded-md {
+  border-radius: 0.375rem;
 }
 
 .bg-blue-50 {

@@ -43,6 +43,7 @@
                   <p class="max-w-lg text-lg md:text-2xl dark:text-white" id="message"></p>
                   <div class="container mx-auto">
                     <p class="max-w-lg text-sm md:text-xl text-slate-400" id="fridayMessage"></p>
+                    <p id="cocktail"></p>
                   </div>
               </div>
               <div class="grid justify-items-center">
@@ -64,8 +65,9 @@
     const currentSecond = now.getSeconds();
     const jsConfetti = new JSConfetti();
 
-    socket.on('update', (message, fridayMessage, heroTitle) => {
+    socket.on('update', (message, cocktail, fridayMessage, heroTitle) => {
       document.getElementById('message').innerText = message;
+      document.getElementById('cocktail').innerHTML = cocktail;
       document.getElementById('fridayMessage').innerText = fridayMessage;
       document.getElementById('heroTitle').innerText = heroTitle;
     });
