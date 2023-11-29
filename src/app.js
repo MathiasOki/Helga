@@ -30,8 +30,6 @@ function cocktailImg() {
   const now = new Date(local);
   const currentDay = now.getDay();
   const currentHour = now.getHours();
-  const currentMinute = now.getMinutes();
-  const currentSecond = now.getSeconds();
 
   //console.log('cocktail?');
   
@@ -43,24 +41,29 @@ function cocktailImg() {
 function getCurrentMessage() {
   const local = new Date().toLocaleString("en-US", {timeZone: "Europe/Oslo"})
   const now = new Date(local);
-  const currentDay = now.getDay();
+  /* const currentDay = now.getDay();
   const currentHour = now.getHours();
   const currentMinute = now.getMinutes();
-  const currentSecond = now.getSeconds();
+  const currentSecond = now.getSeconds(); */
+
+  Date.prototype.getWeek = function() {
+    var onejan = new Date(this.getFullYear(), 0, 1);
+    return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+  }
+  const currentWeek = now.getWeek();
   //console.log(currentHour);
 
-  /* Test
-  const now = new Date();
+  // Test
   const currentDay = 5;
-  const currentHour = 16;
+  const currentHour = 13;
   const currentMinute = 44;
   const currentSecond = now.getSeconds();
-  ND TEST */
+  //END TEST */
 
   const weekDoneMessage = 'Påtide å bevege seg hjemover nå! 😴';
   const nightMessage = 'Du burde sove nå 😴';
 
-  function messageOutput(getCurrentDay, getHoursLeft, getMinutesLeft, getSecondsLeft) {
+  function messageOutput(getCurrentDay, getHoursLeft, getMinutesLeft, getSecondsLeft, getCurrentWeek) {
     let dayOutput = 'til klokken er 16:00.';
     let hoursOutput = '';
     let minutesOutput = '';
@@ -92,6 +95,10 @@ function getCurrentMessage() {
 
     if (getCurrentDay === 3) {
       dayOutput = 'til det er lillelørdag 🥳'
+    }
+
+    if (getCurrentWeek === 48 && getCurrentDay === 5) {
+      dayOutput = 'til julebord 🎅🏼'
     }
 
     return `Det er bare ${hoursOutput} ${minutesOutput} ${secondsOutput} ${dayOutput}`;
@@ -150,7 +157,7 @@ function getCurrentMessage() {
       const minutesLeft = 59 - currentMinute;
       const secondsLeft = 59 - currentSecond;
       heroTitle = 'Ikke lenge igjen nå 🫣';
-      return messageOutput(currentDay, hoursLeft, minutesLeft, secondsLeft);
+      return messageOutput(currentDay, hoursLeft, minutesLeft, secondsLeft, currentWeek);
     } else {
       const weekend = true;
       heroTitle = 'Det er helg! 🍻';
@@ -228,7 +235,20 @@ io.on('connection', (socket) => {
             secondsOutput = `0 sekunder`;
           }
 
-          fridayMessage = `Det er helg om ${daysOutput} ${hoursOutput} ${minutesOutput} ${secondsOutput}`;
+          const local = new Date().toLocaleString("en-US", {timeZone: "Europe/Oslo"})
+          const now = new Date(local);
+
+          Date.prototype.getWeek = function() {
+            var onejan = new Date(this.getFullYear(), 0, 1);
+            return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+          }
+          const currentWeek = now.getWeek();
+
+          if (currentWeek === 48) {
+            fridayMessage = `Det er julebord om ${daysOutput} ${hoursOutput} ${minutesOutput} ${secondsOutput} 🎅🏼`;
+          } else {
+            fridayMessage = `Det er helg om ${daysOutput} ${hoursOutput} ${minutesOutput} ${secondsOutput}`;
+          }   
         }
       }
     }

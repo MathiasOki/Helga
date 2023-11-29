@@ -613,16 +613,12 @@ video {
   width: 66.666667%;
 }
 
-.max-w-lg {
-  max-width: 32rem;
-}
-
-.max-w-\[30\%\] {
-  max-width: 30%;
-}
-
 .max-w-\[50\%\] {
   max-width: 50%;
+}
+
+.max-w-lg {
+  max-width: 32rem;
 }
 
 .content-center {
