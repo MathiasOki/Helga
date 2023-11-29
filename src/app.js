@@ -41,10 +41,10 @@ function cocktailImg() {
 function getCurrentMessage() {
   const local = new Date().toLocaleString("en-US", {timeZone: "Europe/Oslo"})
   const now = new Date(local);
-  /* const currentDay = now.getDay();
+  const currentDay = now.getDay();
   const currentHour = now.getHours();
   const currentMinute = now.getMinutes();
-  const currentSecond = now.getSeconds(); */
+  const currentSecond = now.getSeconds(); 
 
   Date.prototype.getWeek = function() {
     var onejan = new Date(this.getFullYear(), 0, 1);
@@ -53,12 +53,12 @@ function getCurrentMessage() {
   const currentWeek = now.getWeek();
   //console.log(currentHour);
 
-  // Test
+  /* Test
   const currentDay = 5;
   const currentHour = 13;
   const currentMinute = 44;
   const currentSecond = now.getSeconds();
-  //END TEST */
+  END TEST */
 
   const weekDoneMessage = 'Påtide å bevege seg hjemover nå! 😴';
   const nightMessage = 'Du burde sove nå 😴';
