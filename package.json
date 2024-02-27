@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "vercel-build": "node ./src/app.js"
+    "vercel-build": "node ./build.js"
   },
   "author": "Mathias Tollerud",
   "license": "ISC",
