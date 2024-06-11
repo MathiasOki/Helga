@@ -47,7 +47,7 @@
                   </div>
               </div>
               <div class="grid justify-items-center">
-                  <img class="bottom-0 w-2/3 sm:absolute sm:-right-32 md:-right-16 lg:right-0 sm:w-2/4 lg:w-2/5" src="public/img/Gyldenpils.png" alt="">
+                  <img class="bottom-0 w-2/3 sm:absolute sm:-right-32 md:-right-16 lg:right-0 sm:w-2/4 lg:w-2/5" id="dynamic-image" src="" alt="">
               </div>
           </div>
       </div>
@@ -95,6 +95,25 @@
         emojis: ['🍺', '🍾', '🥂', '🍹', '🍻', '🎉'],
       });
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+            const targetIp = "88.151.161.40";
+
+            fetch("https://api.ipify.org?format=json")
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.ip); // Debugging: check if IP is being fetched correctly
+                    if (data.ip === targetIp) {
+                        document.getElementById("dynamic-image").src = "public/img/Gyldenpils-old.png";
+                    } else {
+                        document.getElementById("dynamic-image").src = "public/img/Gyldenpils.png";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching IP information:", error);
+                    document.getElementById("dynamic-image").src = "public/img/Gyldenpils.png";
+                });
+        });
   </script>
 </body>
 </html>
