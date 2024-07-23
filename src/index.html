@@ -97,15 +97,21 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-            const targetIp = "88.151.161.40";
+            const gyldendalIp = "88.151.161.40";
+            const stoIp = "62.101.231.100";
+            const testIp = "84.213.70.235";
 
             fetch("https://api.ipify.org?format=json")
                 .then(response => response.json())
                 .then(data => {
                     console.log(data.ip); // Debugging: check if IP is being fetched correctly
-                    if (data.ip === targetIp) {
+                    if (data.ip === gyldendalIp) {
                         document.getElementById("dynamic-image").src = "public/img/Gyldenpils-old.png";
-                    } else {
+                    } 
+                    else if (data.ip === stoIp || data.ip === testIp) {
+                        document.getElementById("dynamic-image").src = "public/img/Gyldenpils-old.png";
+                    }
+                    else {
                         document.getElementById("dynamic-image").src = "public/img/Gyldenpils.png";
                     }
                 })
