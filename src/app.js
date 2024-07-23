@@ -57,7 +57,7 @@ function getCurrentMessage() {
   const currentSecond = now.getSeconds();
   ND TEST */
 
-  const weekDoneMessage = 'Påtide å bevege seg hjemover nå! 😴';
+  const weekDoneMessage = 'På tide å bevege seg hjemover nå! 😴';
   const nightMessage = 'Du burde sove nå 😴';
 
   function messageOutput(getCurrentDay, getHoursLeft, getMinutesLeft, getSecondsLeft) {
