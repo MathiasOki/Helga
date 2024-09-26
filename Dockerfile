@@ -13,11 +13,8 @@ RUN npm ci --only=production
 # 5. Copy the rest of the application code to the container
 COPY . .
 
-# 6. Build Tailwind CSS output
-RUN npx tailwindcss -i ./src/input.css -o ./public/output.css --minify
-
-# 7. Expose the port the app runs on (adjust this if needed)
+# 6. Expose the port the app runs on (adjust this if needed)
 EXPOSE 3000
 
-# 8. Start the application
+# 7. Start the application
 CMD ["node", "src/app.js"]
