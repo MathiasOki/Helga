@@ -1,23 +1,20 @@
-# Use an official Node runtime as a parent image
-FROM --platform=linux/amd64 node:20
+# 1. Use an official Node.js image as a base
+FROM node:18-alpine
 
-# Set the working directory in the container
-WORKDIR /usr/src/app
+# 2. Set the working directory inside the container
+WORKDIR /app
 
-# Install git (if not already installed)
-RUN apt-get update && apt-get install -y git
+# 3. Copy package.json and package-lock.json
+COPY package.json package-lock.json ./
 
-# Clone your Node.js application from Git
-RUN git clone https://github.com/mathiasoki/helga.git .
+# 4. Install dependencies
+RUN npm ci --only=production
 
-# Set the timezone
-ENV TZ=Europe/Oslo
+# 5. Copy the rest of the application code to the container
+COPY . .
 
-# Install dependencies
-RUN npm install
-
-# Expose the port the app runs on
+# 6. Expose the port the app runs on (adjust this if needed)
 EXPOSE 3000
 
-# Define the command to run the application
+# 7. Start the application
 CMD ["node", "src/app.js"]
