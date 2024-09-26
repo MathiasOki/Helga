@@ -741,9 +741,9 @@ methods@~1.1.2:
   integrity sha512-iclAHeNqNm68zFtnZ0e+1L2yUIdvzNoauKU4WBA3VvH/vPFieF7qfRlwUZU+DA9P9bPXIS90ulxoUoCH23sV2w==
 
 micromatch@^4.0.4, micromatch@^4.0.5:
-  version "4.0.7"
-  resolved "https://registry.npmjs.org/micromatch/-/micromatch-4.0.7.tgz"
-  integrity sha512-LPP/3KorzCwBxfeUuZmaR6bG2kdeHSbe0P2tY3FLRU4vYrjYz5hI4QZwV0njUx3jeuKe67YukQ1LSPZBKDqO/Q==
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-4.0.8.tgz#d66fa18f3a47076789320b9b1af32bd86d9fa202"
+  integrity sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==
   dependencies:
     braces "^3.0.3"
     picomatch "^2.3.1"
@@ -1133,12 +1133,12 @@ simple-update-notifier@^2.0.0:
     semver "^7.5.3"
 
 socket.io-adapter@~2.5.2:
-  version "2.5.4"
-  resolved "https://registry.npmjs.org/socket.io-adapter/-/socket.io-adapter-2.5.4.tgz"
-  integrity sha512-wDNHGXGewWAjQPt3pyeYBtpWSq9cLE5UW1ZUPL/2eGK9jtse/FpXib7epSTsz0Q0m+6sg6Y4KtcFTlah1bdOVg==
+  version "2.5.5"
+  resolved "https://registry.yarnpkg.com/socket.io-adapter/-/socket.io-adapter-2.5.5.tgz#c7a1f9c703d7756844751b6ff9abfc1780664082"
+  integrity sha512-eLDQas5dzPgOWCk9GuuJC2lBqItuhKI4uxGgo9aIV7MYbk2h9Q6uULEh8WBzThoI7l+qU9Ast9fVUmkqPP9wYg==
   dependencies:
     debug "~4.3.4"
-    ws "~8.11.0"
+    ws "~8.17.1"
 
 socket.io-parser@~4.2.4:
   version "4.2.4"
@@ -1370,11 +1370,6 @@ wrap-ansi@^8.1.0:
     ansi-styles "^6.1.0"
     string-width "^5.0.1"
     strip-ansi "^7.0.1"
-
-ws@~8.11.0:
-  version "8.11.0"
-  resolved "https://registry.npmjs.org/ws/-/ws-8.11.0.tgz"
-  integrity sha512-HPG3wQd9sNQoT9xHyNCXoDUa+Xw/VevmY9FoHyQ+g+rrMn4j6FB4np7Z0OhdTgjx6MgQLK7jwSy1YecU1+4Asg==
 
 ws@~8.17.1:
   version "8.17.1"
