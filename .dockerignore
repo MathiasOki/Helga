@@ -5,3 +5,8 @@ Dockerfile
 .git
 .gitignore
 tests
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
