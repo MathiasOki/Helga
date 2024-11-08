@@ -10,7 +10,7 @@ An countdown for important days and times. For example the weekend.
 
 ## Demo
 
-Demo is available on https://helg.gyldendal.no
+Demo is available on https://helg.tollerud.no
 
 
 ## Startup
