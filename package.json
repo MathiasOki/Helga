@@ -9,7 +9,7 @@
   "author": "Mathias Tollerud",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2",
+    "express": "^5.2.1",
     "http": "^0.0.1-security",
     "nodemon": "^3.0.1",
     "socket.io": "^4.7.2"
